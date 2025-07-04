@@ -1,0 +1,4 @@
+<owl:Class rdf:ID="Mammal"/>
+<owl:Class rdf:ID="Dog">
+  <rdfs:subClassOf rdf:resource="#Mammal"/>
+</owl:Class>

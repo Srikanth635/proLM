@@ -1,0 +1,134 @@
+LLM_generated_JSON =
+{
+  "action": "grab-object",
+  "object": {
+    "material": "cardboard",
+    "type": "box"
+  },
+  "source": {
+    "location": "on the table"
+  }
+}
+
+
+store_action_dict in semwebs.pl
+
+gensym(action, Action) => Action = action1
+
+    exp:This generates a unique identifier starting with the prefix "action"
+
+    Every time you call gensym(action, X), you get a new atom: action2, action3, etc.
+
+    It's used as the subject of RDF triples.
+
+atom_string(ActionType, Dict.action) => ActionType = 'grab-object'
+
+    exp:Dict is a Prolog dictionary parsed from the JSON.
+
+    Dict.action retrieves the string "grab-object" from the dictionary.
+
+    atom_string/2 converts that string to an atom, because RDF triples must use atoms or IRIs, not strings.
+
+rdf_assert(action1, rdf:type, soma:'Action') => rdf(action1, rdf:type, soma:'Action')
+
+    exp:Asserts an RDF triple saying: action1 is of type soma:Action
+
+    This classifies the resource as an action in the ontology.
+
+    ✅ Triple added to RDF store: rdf(action1, rdf:type, soma:'Action')
+
+rdf_assert(Action, soma:actionType, literal(ActionType)) => rdf(action1, soma:actionType, literal('grab-object'))
+
+    exp: rdf_assert(action1, soma:actionType, literal('grab-object'))
+
+    Links the action to its specific type ("grab-object") as a literal value.
+
+    This is semantic data about what kind of action it is.
+
+    ✅ Triple added to RDF store: rdf(action1, soma:actionType, literal('grab-object'))
+
+✅ Final Result After These 4 Lines
+Your RDF database now has:
+rdf(action1, rdf:type, soma:'Action').
+rdf(action1, soma:actionType, literal('grab-object')).
+
+
+
+Handling Object in LLM JSON:
+"object": {
+  "material": "cardboard",
+  "type": "box"
+}
+
+🔍 Line-by-Line Explanation
+🔹 Line 1: get_dict(object, Dict, ObjDict)
+
+get_dict(object, Dict, ObjDict) => ObjDict =  _{
+                                      material:"cardboard",
+                                      type:"box"
+                                    }
+
+    exp: Checks whether the "object" key exists in the parsed JSON Dict.
+
+    If yes, binds ObjDict to the value:
+    ObjDict = _{
+      material:"cardboard",
+      type:"box"
+    }
+    This is a Prolog dict holding the object's attributes.
+
+🔹 Line 2: gensym(object, Obj)
+
+gensym(object, Obj) => Obj = object1
+
+exp: Generates a unique name like object1, object2, etc.
+
+This will serve as the subject of RDF triples describing the object.
+Obj = object1
+
+🔹 Line 3: rdf_assert(Action, soma:hasObject, Obj) => rdf(action1, soma:hasObject, object1)
+
+rdf_assert(action1, soma:hasObject, object1)
+exp: Adds a triple linking the current action to its object:
+action1 --soma:hasObject--> object1
+
+🔹 Line 4: rdf_assert(Obj, rdf:type, soma:'Object') => rdf(object1, rdf:type, soma:'Object')
+
+rdf_assert(object1, rdf:type, soma:'Object')
+States that this resource is of type soma:Object
+
+🔹 Line 5: dict_pairs(ObjDict, _, ObjPairs) => ObjPairs = [material-"cardboard", type-"box"]
+
+dict_pairs(ObjDict, _, ObjPairs)
+Converts the object dictionary to a list of key-value pairs:
+ObjPairs = [material-"cardboard", type-"box"]
+
+🔹 Line 6–9: forall(...)
+forall(member(Key-Value, ObjPairs),
+       (   atom_string(AtomValue, Value),
+           rdf_global_id(soma:Key, Predicate),
+           rdf_assert(Obj, Predicate, literal(AtomValue))
+       ))
+This loop does the real work:
+
+For each pair in [material-"cardboard", type-"box"]:
+Convert "cardboard" or "box" (a string) to an atom using atom_string/2. RDF literals must be atoms, not strings.
+
+Use rdf_global_id/2 to convert the short key like material to a full IRI:
+soma:material → 'http://www.ease-crc.org/ont/SOMA.owl#material'
+Assert a triple like:
+rdf(object1, soma:material, literal('cardboard')).
+rdf(object1, soma:type, literal('box')).
+
+
+✅ Final Output for the Object
+Given the JSON snippet, you’ll get these RDF triples:
+
+rdf(action1, soma:hasObject, object1).
+rdf(object1, rdf:type, soma:'Object').
+rdf(object1, soma:material, literal('cardboard')).
+rdf(object1, soma:type, literal('box')).
+
+What Happens If "object" Is Missing in JSON?
+; true
+...means that if the "object" key is not found in the JSON, the whole block simply succeeds without doing anything — no error is thrown.
