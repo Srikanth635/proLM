@@ -1,4 +1,4 @@
-:- module(action_to_rdf, [parse_and_store_action/1]).
+:- module(action_to_rdf, [parse_and_store_action/1, parse_action_from_file/1]).
 
 :- use_module(library(semweb/rdf11)).     % RDF + OWL support
 :- use_module(library(semweb/rdfs)).      % RDFS/OWL reasoning
@@ -70,3 +70,6 @@ store_action_dict(Dict) :-
     ;   true
     ).
 
+parse_action_from_file(FilePath) :-
+    read_file_to_string(FilePath, JSON, []),
+    parse_and_store_action(JSON).

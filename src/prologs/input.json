@@ -1,12 +1,12 @@
 {
-  "action": "grab-object",
+  "action": "PickingUp",
   "object": {
     "type": "box of Cheez-It crackers",
     "material": "cardboard",
     "texture": "smooth"
   },
   "source": {
-    "location": "on the table",
+    "location": "table",
     "position": "on"
   }
 }
