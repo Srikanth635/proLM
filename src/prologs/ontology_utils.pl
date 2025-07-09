@@ -31,9 +31,9 @@ add_import_header(Graph) :-
     rdf_assert(Ontology, owl:imports, 'http://www.ease-crc.org/ont/SOMA.owl', Graph).
 
 export_ontology(File) :-
-    Graph = user,  % or a custom graph if you're using one
-    add_import_header(Graph),
-    rdf_save(File, [format(xml), graph(Graph)]).
+    %Graph = user,  % or a custom graph if you're using one
+    %add_import_header(),
+    rdf_save(File, [format(xml)]).
 
 
 %% show_subclass_axioms(+Class)

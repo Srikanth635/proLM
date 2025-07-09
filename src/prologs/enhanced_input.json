@@ -1,0 +1,31 @@
+{
+  "instruction" : "pick up the cooking pan from the wooden drawer",
+  "action_type" : {
+    "type": {
+      "action": "PickingUp"
+    }
+  },
+  "action_core" : "PickingUp",
+  "action_core_attributes" : {
+    "obj_to_be_grabbed": "the cooking pan",
+    "action_verb": "pick up",
+    "location": "the wooden drawer"
+  },
+  "enriched_action_core_attributes" : {
+    "action_verb": "pick up",
+    "obj_to_be_grabbed": "cooking pan",
+    "obj_to_be_grabbed_props": {
+      "material": "metal",
+      "shape": "cylindrical",
+      "handle": "present",
+      "grip": "textured"
+    },
+    "location": "wooden drawer",
+    "location_props": {
+      "material": "wood",
+      "size": "medium",
+      "shape": "rectangular"
+    }
+  },
+  "cram_plan_response" : "(perform (an action (type PickingUp) (an object (type cooking pan) (material metal) (shape cylindrical) (handle present) (grip textured)) (source (a location (on wooden drawer) (material wood) (size medium) (shape rectangular)))))"
+}

@@ -26,11 +26,17 @@ store_action_dict(Dict) :-
 
     % Create a new Action individual
     gensym(action, Action),
-    atom_string(ActionType, Dict.action),
-    rdf_global_id(soma:'Action', ActionClass),
+    atom_string(ActionTypeAtom, Dict.action),
+    rdf_current_prefix(soma, SomaPrefixIRI),
+    atom_concat(SomaPrefixIRI, ActionTypeAtom, ActionClassTypeIRI),
+
+    rdf_global_id(dul:'Action', ActionClass),
     rdf_assert(Action, rdf:type, ActionClass, Graph),
     rdf_global_id(soma:'actionType', ActionTypeProp),
-    rdf_assert(Action, ActionTypeProp, literal(ActionType), Graph),
+    %rdf_assert(Action, ActionTypeProp, literal(ActionType), Graph),
+
+
+    rdf_assert(Action, ActionTypeProp, ActionClassTypeIRI, Graph),
 
     % Handle object
     (   get_dict(object, Dict, ObjDict)
