@@ -1,0 +1,76 @@
+sudo apt-get install libarchive-dev
+
+sudo apt-get install \
+  build-essential cmake ninja-build pkg-config \
+  ncurses-dev libreadline-dev libedit-dev \
+  libgoogle-perftools-dev \
+  libgmp-dev \
+  libssl-dev \
+  unixodbc-dev \
+  zlib1g-dev libarchive-dev \
+  libossp-uuid-dev \
+  libxext-dev libice-dev libjpeg-dev libxrandr-dev libxinerama-dev libxft-dev \
+  libxpm-dev libxt-dev \
+  libdb-dev \
+  libpcre2-dev \
+  libyaml-dev \
+  python3 libpython3-dev \
+  default-jdk junit4
+
+# Ubuntu/Debian
+sudo apt install python3.11 python3.11-dev libpython3.11-dev
+
+# Fedora/RHEL
+sudo dnf install python3.11-devel
+
+# Or if using your virtual environment's Python
+sudo apt install python3-dev libpython3-dev
+
+
+sudo apt install build-essential cmake ninja-build git
+
+git clone https://github.com/SWI-Prolog/swipl-devel.git
+cd swipl-devel
+git submodule update --init
+
+mkdir build
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=$HOME \
+      -DCMAKE_BUILD_TYPE=PGO \
+      -DPython_EXECUTABLE=/home/malineni/envs/hometesting/bin/python \
+      -DPython_ROOT_DIR=/home/malineni/envs/hometesting \
+      -G Ninja ..
+
+ninja
+
+
+## To test before installation
+ctest -j $(nproc) --output-on-failure
+
+What above command does?-This will run the SWI-Prolog test suite using all available CPU cores. If any tests fail, the --output-on-failure flag will show you the details.
+
+ninja install
+
+echo 'export PATH="$HOME/lib/swipl/bin/x86_64-linux:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+mkdir -p ~/bin
+ln -sf ~/lib/swipl/bin/x86_64-linux/swipl ~/bin/swipl
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+
+## Test Installtion
+# Check if swipl is found
+which swipl
+
+# Start SWI-Prolog
+swipl
+
+# Test Python integration
+?- py_version.
+
+
+# FOr knowrob
+export SWI_HOME_DIR=/home/malineni/lib/swipl
