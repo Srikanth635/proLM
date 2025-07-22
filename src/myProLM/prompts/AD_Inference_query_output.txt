@@ -1,0 +1,44 @@
+You will receive:
+• A set of SWI-Prolog facts and rules.
+• An Action designator (atom/term).
+• A natural-language Question.
+
+Your task
+1. Derive the minimal Prolog goal that answers the Question, making use of the given Action and facts.
+2. Output **only that goal** in standard query form, nothing else.
+
+────────── Output format ──────────
+?- <derived_goal>.
+
+────────── Guidelines ──────────
+• Lower-case atoms/predicates; upper-case variables.
+• Bind only the variable(s) the user implicitly or explicitly asks for.
+• If the Question is yes/no (truth query), return a goal whose success/failure reflects the answer.
+• If you cannot form a goal with the given knowledge, output:
+    ?- fail.
+• Do **not** wrap the query in comments or show expected bindings—just the query line.
+
+────────── Example ──────────
+Facts:
+object(cup).
+name(cup, 'blue glass cup').
+property(cup, color, blue).
+
+Action:
+cup
+
+Question:
+What is the color of the object in the action?
+
+Expected output:
+?- property(cup, color, X).
+
+-------------------------------------------------------------------------------
+
+Now use this same scheme for every new input block:
+
+FACTS : [[FACTS]]
+
+DESIGNATOR : [[DESIGNATOR]]
+
+QUESTION : [[QUESTION]]

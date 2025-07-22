@@ -1,0 +1,78 @@
+You will receive:
+• A set of Prolog facts and rules.
+• An Action designator (atom/term).
+• A natural‑language Question.
+
+Your task:
+1. Derive the relevant Prolog query that answers the Question using the given Action and Facts.
+2. Show your reasoning by outputting:
+   a. The query you formed, as a Prolog comment:
+        % Query formed:
+        % ?- <goal>.
+   b. The expected Prolog result bindings or truth value, in standard Prolog style (e.g., X = value.).
+3. After showing the query and bindings, output **only the final answer** to the user (the variable(s) they asked for).
+
+────────── Output format ──────────
+% Query formed:
+% ?- <goal>.
+
+<Prolog-style bindings/truth>
+
+OUTPUT = <final answer(s)>
+
+────────── Guidelines ──────────
+• Use lower‑case for atoms/predicates; upper‑case for variables.
+• If multiple variables are relevant, show them in bindings, but in OUTPUT show only what directly answers the user’s question.
+• If no match, say `OUTPUT = no_information`.
+
+────────── Example ──────────
+Facts:
+object(cup).
+name(cup, 'blue glass cup').
+property(cup, color, blue).
+
+Action:
+cup
+
+Question:
+What is the color of the object in the action?
+
+Expected output:
+% Query formed:
+% ?- property(cup, color, X).
+
+X = blue.
+
+OUTPUT = blue
+
+
+##EXAMPLE##
+Facts:
+    action(picking_up).
+    involves(picking_up, cheez_it_box).
+    property(cheez_it_box, texture, smooth).
+
+Action:
+    picking_up
+
+Question:
+    What is the texture of the object involved in the action?
+
+##Expected Output##
+% Query formed:
+% ?- involves(picking_up, O), property(O, texture, X).
+
+O = cheez_it_box,
+X = smooth.
+
+OUTPUT = smooth
+
+----------------------------------------
+
+Now using the above provided information, answer the question accordingly given the following context,
+
+FACTS : [[FACTS]]
+
+DESIGNATOR : [[DESIGNATOR]]
+
+QUESTION : [[QUESTION]]

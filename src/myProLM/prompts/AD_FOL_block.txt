@@ -1,0 +1,127 @@
+# Updated Prompt‑Template for First‑Order Logic Formalisation
+
+Below is an updated **prompt‑template** you can drop into your pipeline.  
+It emphasises (i) a clear work‑flow for naming constants and predicates,  
+(ii) explicit, fully‑quantified formulas, and (iii) a uniform output format.  
+After the template you’ll see a **worked example** that uses the mini task you supplied (“PickingUp … Cheez‑It box”).
+
+---
+
+## ⬛ PROMPT‑TEMPLATE ⬛  
+
+```
+You are given:
+• A short “Problem” expressed in ordinary English.
+• One or more “Question” sentences posed about that problem.
+
+Your task is to **formalise** the information in classical first‑order logic (FOL).
+
+──────── Grammar for FOL ────────
+  expr1 ∧ expr2        conjunction
+  expr1 ∨ expr2        inclusive disjunction
+  expr1 ⊕ expr2        exclusive disjunction (xor)
+  ¬expr1               negation
+  expr1 → expr2        implication
+  expr1 ↔ expr2        biconditional
+  ∀x expr              universal quantification
+  ∃x expr              existential quantification
+Parentheses may be used for grouping as usual.
+────────────────────────────────
+
+### 1. Identify constants
+Choose lower‑case constant symbols for every specific entity that appears in the text  
+(e.g. `miroslav`, `cheezItBox`, `table`, `pickingUp`).
+
+### 2. Declare predicates
+For every *unary* or *n‑ary* property / relation that the text mentions, invent a predicate in **CamelCase**.  
+Immediately follow each declaration with a concise English gloss, using the pattern:
+
+PredicateName(arg1, …, argN) ::: English explanation.
+
+### 3. Translate the Problem → Premises
+Translate each relevant English fact into a *separate* FOL sentence, using only:
+  • the constants chosen in step 1,  
+  • the predicates from step 2, and  
+  • the grammar symbols above.
+
+### 4. Translate each Question → Conclusion
+Convert every natural‑language question into **one candidate FOL formula** that captures exactly the
+statement whose truth we want to test.
+
+> **Do NOT** attempt to prove or refute the conclusions; simply output the formalisation.
+
+### 5. Output
+Return the result in the following skeleton (replace the placeholders with your content).  
+Keep the headings exactly as shown:
+
+Predicates:
+Predicate1(…) ::: …
+Predicate2(…) ::: …
+…
+
+Premises:
+<one FOL sentence per line>
+
+Conclusion:
+<formula for Question 1>
+<formula for Question 2>
+…
+
+Be sure every variable occurring free is explicitly bound by ∀ or ∃.  
+If the English sentence already refers to “some” or “all”, mirror that with ∃ or ∀; otherwise choose the most faithful representation.
+
+---
+
+## ⬛ WORKED EXAMPLE (uses the template) ⬛  
+
+**Input**
+
+```
+Problem:
+The action described is 'PickingUp'. The object involved is a 'box of Cheez‑It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.
+
+Question:
+Based on the above information, what is the action being described?
+```
+
+**Output produced by the template**
+
+```
+Predicates:
+Action(a) ::: a is an action.
+Object(o) ::: o is a physical object.
+Involves(a, o) ::: action a involves object o.
+MadeOf(o, m) ::: object o is made of material m.
+Texture(o, t) ::: object o has surface texture t.
+SourceOf(o, s) ::: object o originates from source/location s.
+Position(o, s, p) ::: object o is in position p relative to s.
+Name(e, n) ::: entity e is called n.
+
+Premises:
+Action(pickingUp)
+Object(cheezItBox)
+Name(pickingUp, 'PickingUp')
+Name(cheezItBox, 'Cheez‑It crackers box')
+MadeOf(cheezItBox, cardboard)
+Texture(cheezItBox, smooth)
+Involves(pickingUp, cheezItBox)
+SourceOf(cheezItBox, table)
+Position(cheezItBox, table, on)
+
+Conclusion:
+Action(pickingUp)
+```
+
+*Explanation*:  
+The conclusion formalises “The action being described is **picking up**.”  
+
+###
+From the above context provided to generate FOL formulas, apply them to the below given problem and question accordingly
+
+
+Problem:
+[[PROBLEM]]
+
+Question:
+[[QUESTION]]
+```

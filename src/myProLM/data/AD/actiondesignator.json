@@ -1,0 +1,84 @@
+[
+  {
+    "id": "CheezIt_QA_0",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, what is the action being described?",
+    "options": [
+      "A) PlacingDown",
+      "B) PickingUp",
+      "C) Moving",
+      "D) Opening"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "CheezIt_QA_1",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, what is the object being picked up?",
+    "options": [
+      "A) A can of soda",
+      "B) A box of Cheez-It crackers",
+      "C) A book",
+      "D) A remote control"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "CheezIt_QA_2",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, what material is the object made of?",
+    "options": [
+      "A) Plastic",
+      "B) Metal",
+      "C) Cardboard",
+      "D) Wood"
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "CheezIt_QA_3",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, where is the object located before being picked up?",
+    "options": [
+      "A) On the floor",
+      "B) In a cupboard",
+      "C) On a table",
+      "D) In a drawer"
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "CheezIt_QA_4",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, what is the texture of the box of Cheez-It crackers?",
+    "options": [
+      "A) Rough",
+      "B) Bumpy",
+      "C) Smooth",
+      "D) Sticky"
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "CheezIt_QA_5",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, is the object on the floor?",
+    "options": [
+      "A) True",
+      "B) False",
+      "C) Uncertain"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "CheezIt_QA_6",
+    "context": "The action described is 'PickingUp'. The object involved is a 'box of Cheez-It crackers', which is made of 'cardboard' and has a 'smooth' texture. The source of the object is a 'table', and its position relative to the table is 'on'.",
+    "question": "Based on the above information, is the object a glass bottle?",
+    "options": [
+      "A) True",
+      "B) False",
+      "C) Uncertain"
+    ],
+    "answer": "B"
+  }
+]

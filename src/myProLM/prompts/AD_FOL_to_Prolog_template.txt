@@ -1,0 +1,155 @@
+# Template: Convert FOL Block → SWI‑Prolog Knowledge Base
+
+This template instructs a language model (or any converter) to take the **first‑order‑logic (FOL) block** produced by the earlier “formalisation” stage and turn it into a fully executable SWI‑Prolog program.
+
+---
+
+## ⬛  PROMPT‑TEMPLATE  ⬛  
+
+```
+You will receive a block of first‑order logic (FOL) text produced by a previous step.  
+Its layout is always:
+
+Predicates:
+Predicate1(args) ::: English gloss.
+Predicate2(args) ::: ...
+
+Premises:
+<one FOL formula per line>
+
+Conclusion:
+<formula for Question 1>
+<formula for Question 2>
+…
+
+Your task is to **rewrite this block as a fully executable SWI‑Prolog knowledge base**.
+
+────────── Prolog output requirements ──────────
+1. Produce *only* valid Prolog code (no headings, unless you add comments yourself).
+2. Keep one clause per line and end every clause with a period.
+3. Use **lower‑case atoms** for constants and predicate names; use underscores or camelCase for readability.
+4. Use **upper‑case identifiers** for variables.
+5. Translate logical forms as follows:
+
+   • **Fact**                       P(c₁,…,cₙ)     →  p(c₁,…,cₙ).
+   • **Universal implication**      ∀x (A → B)     →  b(X) :- a(X).
+   • Conjunction in the body        A ∧ B          →  a(X), b(X)
+   • Inclusive disjunction          A ∨ B          →  two separate rules with the same head.
+   • Biconditional                  A ↔ B          →  a(X) :- b(X).   b(X) :- a(X).
+   • Exclusive‑or                   A ⊕ B          →  xor helper:   a_or_b(X) :- a(X), \+ b(X).   a_or_b(X) :- b(X), \+ a(X).
+   • Negation of a literal          ¬A             →  \+ a(X)   (negation‑as‑failure)
+   • Nested parentheses         keep precedence explicit with commas/semicolons as needed.
+
+   If a connective cannot be captured by a single Horn clause, introduce helper predicates.
+
+6. Treat every **existential quantifier** (∃) by *skolemising* it into a fresh constant unless an explicit constant already exists.
+7. Do **not** encode the *Conclusion* sentences as facts; instead, append them as **sample queries** at the bottom, prefixed by `?- `.
+8. Preserve the arity of each predicate.
+
+────────── Conversion algorithm (follow strictly) ──────────
+STEP 1: Read the “Predicates:” section and build a mapping from each predicate name to a safe Prolog atom.
+
+STEP 2: Transform every formula in “Premises:” into one or more Prolog clauses using the rules above.
+
+STEP 3: For each formula in “Conclusion:”
+        • Convert it to a Prolog goal (same predicate mapping, variables upper‑case).
+        • Emit it as a comment line:
+            % Test:  ?- <goal>.
+        Optionally include the expected truth value if obvious.
+
+STEP 4: Output the final code block.
+
+────────── Output format (exactly) ──────────
+<Prolog clauses…>
+
+% ---------------- Queries ----------------
+% Test: ?- <first conclusion as query>.
+% Test: ?- <second conclusion as query>.
+% …
+```
+
+---
+
+## ⬛  EXAMPLE 1  –  “Cat / Animal” ⬛
+
+### Input FOL block
+```
+Predicates:
+Cat(x) ::: x is a cat.
+Animal(x) ::: x is an animal.
+
+Premises:
+∀x (Cat(x) → Animal(x))
+Cat(felix)
+
+Conclusion:
+Animal(felix)
+```
+
+### Expected Prolog output
+```prolog
+% Facts
+cat(felix).
+
+% Rules
+animal(X) :- cat(X).
+
+% ---------------- Queries ----------------
+% Test: ?- animal(felix).
+```
+
+---
+
+## ⬛  EXAMPLE 2  - “PickingUp the Cheez‑It box” ⬛
+
+### Input FOL block (abridged)
+```
+Predicates:
+Action(a) ::: a is an action.
+Object(o) ::: o is a physical object.
+Involves(a, o) ::: action a involves object o.
+MadeOf(o, m) ::: object o is made of material m.
+Texture(o, t) ::: object o has texture t.
+SourceOf(o, s) ::: object o originates from s.
+Position(o, s, p) ::: object o is in position p relative to s.
+Name(e, n) ::: entity e is called n.
+
+Premises:
+Action(pickingUp)
+Object(cheezItBox)
+Name(pickingUp, 'PickingUp')
+Name(cheezItBox, 'Cheez-It crackers box')
+MadeOf(cheezItBox, cardboard)
+Texture(cheezItBox, smooth)
+Involves(pickingUp, cheezItBox)
+SourceOf(cheezItBox, table)
+Position(cheezItBox, table, on)
+
+Conclusion:
+Action(pickingUp)
+```
+
+### Expected Prolog output
+```prolog
+% Facts
+action(picking_up).
+object(cheez_it_box).
+
+name(picking_up,        'PickingUp').
+name(cheez_it_box,      'Cheez-It crackers box').
+
+made_of(cheez_it_box,   cardboard).
+texture(cheez_it_box,   smooth).
+
+involves(picking_up,    cheez_it_box).
+
+source_of(cheez_it_box, table).
+position(cheez_it_box,  table, on).
+
+% ---------------- Queries ----------------
+% Test: ?- action(picking_up).
+```
+
+Now using the above context provided, apply them to the below given FOL block and generate the output as mentioned above.
+
+[[FOL_block]]

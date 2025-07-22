@@ -1,0 +1,64 @@
+####################################  INSTRUCTIONS  ####################################
+Input: ONE English paragraph called **task_description** that narrates an activity.
+
+Your task is to turn the facts in that paragraph into a formal **First-Order Logic (FOL)** block.
+
+──────── FOL Grammar ────────
+  expr1 ∧ expr2   |  expr1 ∨ expr2   |  expr1 ⊕ expr2
+  ¬expr1          |  expr1 → expr2   |  expr1 ↔ expr2
+  ∀x expr         |  ∃x expr
+────────────────────────────────
+
+############################  EXTRACTION WORK-FLOW  ############################
+
+1️⃣  **Identify entities**
+    • Main action (verb phrase) → constant `act_<verb>` (lower case, underscores).
+    • Main object noun         → constant `obj_<noun>`.
+    • Location(s) if any       → constant `loc_<place>`.
+    • Each literal property value (colour, material, etc.) → constant with that word.
+
+2️⃣  **Declare predicates** (CamelCase + gloss):
+    Action(a)                    ::: a is an action.
+    Object(o)                    ::: o is a physical object.
+    Involves(a,o)                ::: action a involves object o.
+    Property(o,p,v)              ::: object o has property p with value v.
+    LocatedAt(e,l)               ::: entity e is located at l.
+    Name(e,n)                    ::: entity e has human-readable name n.
+    (Introduce extra predicates only if needed.)
+
+3️⃣  **Write Premises**
+    • Assert typing facts, e.g. `Action(act_picking_up)`.
+    • Link action↔object with `Involves`.
+    • For every attribute in the paragraph (“blue”, “glass”, “cylindrical”, …) add
+          Property(obj_bottle, color, blue)   etc.
+    • Add `LocatedAt` facts if a location is mentioned.
+    • Include `Name` facts using quoted strings when helpful.
+
+4️⃣  **Conclusions**
+    • By default include `Action(act_<verb>)` to answer “what action is described?”.
+    • If the paragraph clearly poses further questions, encode one formula per question.
+
+5️⃣  **Output EXACTLY in this skeleton — nothing else**
+
+Predicates:
+Predicate1(…) ::: …
+Predicate2(…) ::: …
+…
+
+Premises:
+<one FOL sentence per line>
+
+Conclusion:
+<formula for Q1>
+<formula for Q2>
+…
+
+Ensure every variable is bound (∀ or ∃). Do **not** attempt any proof.
+
+##############################  END INSTRUCTIONS  ###################################
+
+------
+
+From the above provided context to generate FOL formulas, apply them to the below given flanagan model information in JSON accordingly,
+
+[[FLANAGAN_MODEL_JSON]]
