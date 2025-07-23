@@ -1,10 +1,7 @@
 import json
-import sys
 import re
 import os
 from tqdm import tqdm
-from collections import OrderedDict
-from typing import Dict, List, Tuple
 from utils import OpenAIModel
 from ollama_utils import OllamaModel
 import argparse
@@ -271,8 +268,8 @@ class LogicProgramGenerator:
         try:
             task_description = basic_designator_json['task_description'].strip()
             full_prompt = self.prompt_template.replace('[[TASK_DESCRIPTION]]', task_description)
-            # output = self.openai_api.generate(full_prompt)
-            output = self.ollama_api.generate(full_prompt + " \nothink")
+            output = self.openai_api.generate(full_prompt)
+            # output = self.ollama_api.generate(full_prompt + " \nothink")
             programs = output
             basic_designator_json['raw_logic_programs'] = programs
 
@@ -282,8 +279,8 @@ class LogicProgramGenerator:
             try:
                 raw_logic_programs = basic_designator_json['raw_logic_programs']
                 full_prompt = FOL_Prolog_prompt_template.replace('[[FOL_block]]', raw_logic_programs)
-                # output = self.openai_api.generate(full_prompt)
-                output = self.ollama_api.generate(full_prompt + " \nothink")
+                output = self.openai_api.generate(full_prompt)
+                # output = self.ollama_api.generate(full_prompt + " \nothink")
                 uncleaned_prologs = output
                 prologs = re.sub(r"```[a-zA-Z0-9]*\s*", "", uncleaned_prologs).strip()
                 # if uncleaned_prologs.startswith('```prolog'):
@@ -312,7 +309,7 @@ class LogicProgramInference:
     def __init__(self, kb_file_path, api_key, model_name, stop_words='------', max_new_tokens=2048):
         self.kb_file_path = kb_file_path
         self.openai_api = OpenAIModel(api_key, model_name, stop_words=stop_words, max_new_tokens=max_new_tokens)
-        self.ollama_api = OllamaModel(model_name="qwen3:8b", stop_words=["\n"], max_new_tokens=10000)
+        self.ollama_api = OllamaModel(model_name="qwen3:14b", stop_words=["\n"], max_new_tokens=10000)
 
     def load_kb(self):
         facts = []
@@ -409,6 +406,8 @@ def run_prolog_query(kb_path: Union[str, Path], query: str):
         return {'answer':result}
     except Exception as e:
         return {"error": str(e)}
+
+
 
 
 # Keep the original main for backward compatibility or direct script execution

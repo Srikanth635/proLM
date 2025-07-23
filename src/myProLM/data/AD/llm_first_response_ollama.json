@@ -1,30 +1,18 @@
 {
-  "action_core": "Pouring",
-  "cram_plan_response": "(an action (type pour-from-container) (source (an object (type the mug) (position on) (shape cylindrical) (material ceramic)) (contains (a substance (type water) (color clear) (transparency transparent) (texture smooth) (odor none))))) (count (unit ml) (number 100)) (a location (in pot) (position on) (shape cylindrical) (material metal)))",
+  "action_core": "PickingUp",
+  "cram_plan_response": "(an action (type PickingUp) (an object (type box) (shape round) (color white)) (source (a location (on the drawer) (position under))))",
   "enriched_action_core_attributes": {
-    "action_verb": "pour",
-    "amount": "100",
-    "goal": "pot",
-    "goal_props": {
-      "material": "metal",
-      "position": "on",
-      "shape": "cylindrical"
+    "action_verb": "Pick up",
+    "location": "the drawer",
+    "location_props": {
+      "position": "under"
     },
-    "source": "the mug",
-    "source_props": {
-      "material": "ceramic",
-      "position": "on",
-      "shape": "cylindrical"
-    },
-    "stuff": "water",
-    "stuff_props": {
-      "color": "clear",
-      "odor": "none",
-      "texture": "smooth",
-      "transparency": "transparent"
-    },
-    "unit": "ml"
+    "obj_to_be_grabbed": "box",
+    "obj_to_be_grabbed_props": {
+      "color": "white",
+      "shape": "round"
+    }
   },
-  "instruction": "pour 100ml of water from the mug into pot",
-  "task_description": "**Activity Performed:** Pouring  \n**Action Sequence:**  \n1. Identify action type: *pour-from-container*.  \n2. Source: Object *the mug* (position: *on*, shape: *cylindrical*, material: *ceramic*) containing substance *water* (color: *clear*, transparency: *transparent*, texture: *smooth*, odor: *none*).  \n3. Specify amount: *100 ml*.  \n4. Destination: Location *in pot* (position: *on*, shape: *cylindrical*, material: *metal*).  \n\n**Entity Details:**  \n- **The Mug:** Material: *ceramic*, position: *on*, shape: *cylindrical*.  \n- **Water:** Color: *clear*, transparency: *transparent*, texture: *smooth*, odor: *none*.  \n- **Pot:** Material: *metal*, position: *on*, shape: *cylindrical*."
+  "instruction": "Pick up round white box from the drawer",
+  "task_description": "**Activity Performed:** PickingUp  \n**Action Sequence:**  \n1. Initiate PickingUp action.  \n2. Identify object: box (shape: round, color: white).  \n3. Specify source location: drawer (position: under).  \n\n**Entity Details:**  \n- **Box:**  \n  - Shape: round  \n  - Color: white  \n- **Drawer:**  \n  - Position: under"
 }

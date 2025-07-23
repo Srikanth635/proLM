@@ -1,4 +1,4 @@
-:- module(janus_llm, [enquire_designator/3, gen_action_designator/2, movie/4, recommendation_by_director/2]).
+:- module(janus_llm, [parse_query/3,enquire_designator/3, gen_action_designator/2, movie/4, recommendation_by_director/2]).
 :- use_module(library(janus)).
 %:- py_setenv('PYTHON', '/home/malineni/envs/hometesting/bin/python').
 
@@ -139,4 +139,21 @@ test_gen_action_designator(Prompt, Designator) :-
         ->  throw(error(python_error(ErrorMsg), _))
         ;   throw(error(cram_plan_response_not_found, _))
         )
+    ).
+
+parse_query(Designator, Keyword, Answer):-
+    ( var(Designator) ->
+        writeln("Designator not passed"),nl,
+        py_call(builtins:print("python D not passed"))
+    ; nonvar(Designator) ->
+        writeln("Designator Passed"),nl,
+        py_call(builtins:print("python D passed"))
+     ),
+
+    ( var(Keyword) ->
+        writeln("No keyword passed"),nl,
+        py_call(builtins:print("python kw not passed"))
+    ; nonvar(Keyword) ->
+        writeln("Keyword Passed"),nl,
+        py_call(builtins:print("python kw passed"))
     ).
