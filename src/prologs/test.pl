@@ -1,3 +1,17 @@
+% --- Knowledge Base ---  movie/4, recommendation_by_director/2
+movie(interstellar, nolan, scifi, 2014).
+movie(inception, nolan, scifi, 2010).
+movie(the_prestige, nolan, thriller, 2006).
+movie(pulp_fiction, tarantino, crime, 1994).
+movie(once_upon_a_time, tarantino, drama, 2019).
+
+% --- Recommendation Logic ---
+% Recommend another movie by the same director.
+recommendation_by_director(LikedMovie, NewMovie) :-
+    movie(LikedMovie, Director, _, _), % Find the director of the liked movie
+    movie(NewMovie, Director, _, _),   % Find another movie by that same director
+    LikedMovie \= NewMovie.            % Ensure it's not the same movie
+
 my_directive(Arg1, Arg2) :-
     ( var(Arg1) ->
         write('Argument 1 is unbound'), nl
