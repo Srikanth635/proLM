@@ -1,0 +1,27 @@
+{
+  "session_id": "analysis_smartphone_20250729_154047",
+  "timestamp": "20250729_154047",
+  "object_name": "Smartphone",
+  "export_formats": [
+    "json",
+    "html",
+    "markdown",
+    "knowledge_graph"
+  ],
+  "exported_files": [
+    "object_description_smartphone.json",
+    "analysis_report_smartphone.html",
+    "summary_smartphone.md",
+    "knowledge_graph_smartphone.ttl"
+  ],
+  "metadata": {
+    "analysis_timestamp": "2025-07-29T15:40:47.935797",
+    "mode": "mock",
+    "template_used": "smartphone",
+    "confidence_note": "Mock analysis - not from real LLM"
+  },
+  "system_info": {
+    "version": "0.1.0",
+    "export_time": "2025-07-29T15:40:47.936992"
+  }
+}

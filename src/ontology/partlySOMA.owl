@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ease-crc.org/ont/partlySOMA.owl#"
+     xml:base="http://www.ease-crc.org/ont/partlySOMA.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:SOMA="http://www.ease-crc.org/ont/SOMA.owl#"
+     xmlns:partlySOMA="http://www.ease-crc.org/ont/partlySOMA.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://www.ease-crc.org/ont/partlySOMA.owl">
+        <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA.owl"/>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+        <rdfs:comment>A specialized subset of SOMA ontology for specific domain use</rdfs:comment>
+        <rdfs:label>Partial SOMA Ontology</rdfs:label>
+    </owl:Ontology>
+
+    <!-- Your specific concepts and relations here -->
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/partlySOMA.owl#SpecializedObject">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject"/>
+        <rdfs:label>Specialized Object</rdfs:label>
+    </owl:Class>
+
+</rdf:RDF>

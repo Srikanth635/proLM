@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:soma="http://www.ease-crc.org/ont/SOMA.owl#" xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#" xmlns:instance="http://example.org/instances#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://example.org/instances#apple_001">
+    <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Item"/>
+    <soma:hasColor rdf:resource="http://example.org/instances#apple_001_color"/>
+    <soma:hasShape rdf:resource="http://example.org/instances#apple_001_shape"/>
+    <soma:isSupportedBy rdf:resource="http://example.org/instances#table_001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/instances#table_001">
+    <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture"/>
+    <soma:supports rdf:resource="http://example.org/instances#apple_001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/instances#apple_001_color">
+    <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#RedColor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/instances#apple_001_shape">
+    <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#SphereShape"/>
+  </rdf:Description>
+</rdf:RDF>

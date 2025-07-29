@@ -1,0 +1,27 @@
+{
+  "session_id": "analysis_brown_object_20250729_154747",
+  "timestamp": "20250729_154747",
+  "object_name": "Brown Object",
+  "export_formats": [
+    "json",
+    "html",
+    "markdown",
+    "knowledge_graph"
+  ],
+  "exported_files": [
+    "object_description_brown_object.json",
+    "analysis_report_brown_object.html",
+    "summary_brown_object.md",
+    "knowledge_graph_brown_object.ttl"
+  ],
+  "metadata": {
+    "analysis_timestamp": "2025-07-29T15:47:47.908241",
+    "mode": "mock",
+    "template_used": "mug",
+    "confidence_note": "Mock analysis - not from real LLM"
+  },
+  "system_info": {
+    "version": "0.1.0",
+    "export_time": "2025-07-29T15:47:47.909344"
+  }
+}

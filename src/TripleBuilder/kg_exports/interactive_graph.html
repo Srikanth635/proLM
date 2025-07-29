@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOMA Knowledge Graph Visualization</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        #knowledge-graph {
+            width: 100%;
+            height: 600px;
+            border: 1px solid lightgray;
+        }
+        .controls {
+            margin: 10px 0;
+        }
+        .info {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SOMA Knowledge Graph Visualization</h1>
+
+    <div class="info">
+        <strong>Graph Statistics:</strong>
+        Nodes: 8 | Edges: 8 | Triples: 8
+    </div>
+
+    <div class="controls">
+        <button onclick="network.fit()">Fit to Screen</button>
+        <button onclick="togglePhysics()">Toggle Physics</button>
+        <button onclick="exportImage()">Export Image</button>
+    </div>
+
+    <div id="knowledge-graph"></div>
+
+    <div class="info">
+        <strong>Legend:</strong><br>
+        <span style="color: #3498db;">●</span> Instances |
+        <span style="color: #e74c3c;">●</span> Classes |
+        <span style="color: #2ecc71;">●</span> Properties |
+        <span style="color: #f39c12;">●</span> Literals
+    </div>
+
+    <script type="text/javascript">
+        var nodes = new vis.DataSet([{"id": "http://example.org/instances#apple_001", "label": "apple_001", "color": "#3498db", "title": "Type: instance"}, {"id": "http://www.ease-crc.org/ont/SOMA.owl#Item", "label": "Item", "color": "#2ecc71", "title": "Type: property"}, {"id": "http://example.org/instances#table_001", "label": "table_001", "color": "#3498db", "title": "Type: instance"}, {"id": "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture", "label": "DesignedFurniture", "color": "#2ecc71", "title": "Type: property"}, {"id": "http://example.org/instances#apple_001_color", "label": "apple_001_color", "color": "#3498db", "title": "Type: instance"}, {"id": "http://www.ease-crc.org/ont/SOMA.owl#RedColor", "label": "RedColor", "color": "#2ecc71", "title": "Type: property"}, {"id": "http://example.org/instances#apple_001_shape", "label": "apple_001_shape", "color": "#3498db", "title": "Type: instance"}, {"id": "http://www.ease-crc.org/ont/SOMA.owl#SphereShape", "label": "SphereShape", "color": "#2ecc71", "title": "Type: property"}]);
+        var edges = new vis.DataSet([{"from": "http://example.org/instances#apple_001", "to": "http://www.ease-crc.org/ont/SOMA.owl#Item", "label": "type", "arrows": "to"}, {"from": "http://example.org/instances#apple_001", "to": "http://example.org/instances#apple_001_color", "label": "hasColor", "arrows": "to"}, {"from": "http://example.org/instances#apple_001", "to": "http://example.org/instances#apple_001_shape", "label": "hasShape", "arrows": "to"}, {"from": "http://example.org/instances#apple_001", "to": "http://example.org/instances#table_001", "label": "isSupportedBy", "arrows": "to"}, {"from": "http://example.org/instances#table_001", "to": "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture", "label": "type", "arrows": "to"}, {"from": "http://example.org/instances#table_001", "to": "http://example.org/instances#apple_001", "label": "supports", "arrows": "to"}, {"from": "http://example.org/instances#apple_001_color", "to": "http://www.ease-crc.org/ont/SOMA.owl#RedColor", "label": "type", "arrows": "to"}, {"from": "http://example.org/instances#apple_001_shape", "to": "http://www.ease-crc.org/ont/SOMA.owl#SphereShape", "label": "type", "arrows": "to"}]);
+        var container = document.getElementById('knowledge-graph');
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {
+            nodes: {
+                shape: 'dot',
+                size: 16,
+                font: {
+                    size: 12,
+                    color: '#000000'
+                },
+                borderWidth: 2
+            },
+            edges: {
+                width: 2,
+                color: {inherit: 'from'},
+                smooth: {
+                    type: 'continuous'
+                },
+                font: {
+                    size: 10,
+                    align: 'middle'
+                }
+            },
+            physics: {
+                stabilization: false,
+                barnesHut: {
+                    gravitationalConstant: -80000,
+                    springConstant: 0.001,
+                    springLength: 200
+                }
+            },
+            interaction: {
+                tooltipDelay: 200,
+                hover: true
+            }
+        };
+        var network = new vis.Network(container, data, options);
+
+        var physicsEnabled = true;
+        function togglePhysics() {
+            physicsEnabled = !physicsEnabled;
+            network.setOptions({physics: physicsEnabled});
+        }
+
+        function exportImage() {
+            var canvas = network.body.container.getElementsByTagName('canvas')[0];
+            var dataURL = canvas.toDataURL();
+            var link = document.createElement('a');
+            link.download = 'knowledge_graph.png';
+            link.href = dataURL;
+            link.click();
+        }
+
+        // Event listeners
+        network.on("click", function (params) {
+            if (params.nodes.length > 0) {
+                var nodeId = params.nodes[0];
+                console.log('Clicked node:', nodeId);
+            }
+        });
+
+        network.on("stabilizationIterationsDone", function () {
+            network.setOptions({physics: false});
+        });
+    </script>
+</body>
+</html>
+        

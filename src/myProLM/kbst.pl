@@ -1,19 +1,22 @@
-:- module(kbst).
-
 % Facts
 action(picking_up).
-object(box).
-object(drawer).
+object(cup).
+object(table).
 
 name(picking_up, 'PickingUp').
-name(box, 'white round box').
-name(drawer, 'drawer').
+name(cup, 'clear glass cup').
+name(table, 'table').
 
-property(box, color, white).
-property(box, shape, round).
+property(cup, color, clear).
+property(cup, material, glass).
+property(cup, shape, cylindrical).
+property(cup, size, medium).
+property(cup, transparency, transparent).
+property(table, position, on).
+property(table, surface, flat).
 
-located_at(box, drawer).
+located_at(cup, table).
 
-involves(picking_up, box).
+involves(picking_up, cup).
 
 %

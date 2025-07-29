@@ -1,0 +1,133 @@
+{
+  "object_analysis": {
+    "name": "Red Apple",
+    "description": "A red apple sitting on a wooden kitchen table",
+    "visual": {
+      "colors": {
+        "primary_color": "red",
+        "rgb": {
+          "r": 220,
+          "g": 20,
+          "b": 60
+        },
+        "hsv": null,
+        "secondary_colors": [],
+        "color_pattern": null
+      },
+      "surface": {
+        "texture": "smooth",
+        "finish": "natural",
+        "transparency": null,
+        "reflectivity": null,
+        "pattern": null
+      },
+      "aesthetic_design": null,
+      "visual_features": []
+    },
+    "geometric": {
+      "shape": {
+        "primary_shape": "SphereShape",
+        "dimensions": {
+          "width": null,
+          "height": 0.08,
+          "depth": null,
+          "length": null,
+          "radius": 0.04
+        },
+        "shape_parameters": {},
+        "complex_geometry": null
+      },
+      "pose": null,
+      "spatial_relations": {
+        "supported_by": [],
+        "supports": [],
+        "contained_in": [],
+        "contains": [],
+        "adjacent_to": []
+      },
+      "bounding_box": null
+    },
+    "material": {
+      "primary_material": "organic",
+      "secondary_materials": [],
+      "mass": 0.18,
+      "density": null,
+      "hardness": null,
+      "temperature": null
+    },
+    "mechanical": {
+      "static_friction": null,
+      "kinetic_friction": null,
+      "max_force": null,
+      "elasticity": null,
+      "fragility": null
+    },
+    "capabilities": {
+      "functional_affordances": {
+        "can_cut": false,
+        "can_contain": false,
+        "can_support": null,
+        "can_pour": null,
+        "can_grasp": true,
+        "can_operate": null,
+        "pourable": null,
+        "graspability": 0.9
+      },
+      "task_affordances": {
+        "primary_tasks": [
+          "eating",
+          "nutrition",
+          "snacking"
+        ],
+        "secondary_tasks": [],
+        "requires_tools": [],
+        "enables_tasks": []
+      },
+      "capabilities": [],
+      "limitations": []
+    },
+    "semantic": {
+      "category": "Item",
+      "subcategories": [],
+      "roles": {
+        "agent_roles": [],
+        "patient_roles": [],
+        "instrument_roles": [],
+        "location_roles": []
+      },
+      "context": {
+        "typical_locations": [],
+        "associated_activities": [],
+        "cultural_significance": null,
+        "safety_considerations": [],
+        "maintenance_requirements": []
+      },
+      "synonyms": []
+    },
+    "state": {
+      "device_state": null,
+      "cleanliness": "unknown",
+      "integrity": 1.0,
+      "functional_state": null,
+      "temporal_properties": {}
+    },
+    "confidence_score": 0.85,
+    "source": "mock_agent",
+    "timestamp": "2025-07-29T15:47:01.012364"
+  },
+  "knowledge_graph": {
+    "turtle": "@prefix soma: <http://www.ease-crc.org/ont/SOMA.owl#> .\n@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .\n@prefix instance: <http://example.org/instances#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\ninstance:red_apple_20250729_154701_aa8985 rdf:type soma:Item .\ninstance:red_apple_20250729_154701_aa8985 soma:hasName \"Red Apple\" .\ninstance:red_apple_20250729_154701_aa8985 soma:hasDescription \"A red apple sitting on a wooden kitchen table\" .\ninstance:red_apple_20250729_154701_aa8985 soma:hasConfidenceScore \"0.85\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985 soma:hasTimestamp \"2025-07-29T15:47:01.012364\" .\ninstance:red_apple_20250729_154701_aa8985_color rdf:type soma:RedColor .\ninstance:red_apple_20250729_154701_aa8985_color soma:hasRGBValue \"220,20,60\" .\ninstance:red_apple_20250729_154701_aa8985 soma:hasColor instance:red_apple_20250729_154701_aa8985_color .\ninstance:red_apple_20250729_154701_aa8985_shape rdf:type soma:SphereShape .\ninstance:red_apple_20250729_154701_aa8985_shape soma:hasHeight \"0.08\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985_shape soma:hasRadius \"0.04\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985_shape soma:hasVolume \"0.00040212352\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985 soma:hasShape instance:red_apple_20250729_154701_aa8985_shape .\ninstance:red_apple_20250729_154701_aa8985_material rdf:type soma:Material .\ninstance:red_apple_20250729_154701_aa8985_material soma:hasMaterialtype \"organic\" .\ninstance:red_apple_20250729_154701_aa8985 soma:hasMaterial instance:red_apple_20250729_154701_aa8985_material .\ninstance:red_apple_20250729_154701_aa8985_mass rdf:type soma:MassAttribute .\ninstance:red_apple_20250729_154701_aa8985_mass soma:hasMassValue \"0.18\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985 soma:hasMassAttribute instance:red_apple_20250729_154701_aa8985_mass .\ninstance:red_apple_20250729_154701_aa8985_graspability rdf:type soma:Graspability .\ninstance:red_apple_20250729_154701_aa8985_graspability soma:hasGraspabilityValue \"0.9\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:red_apple_20250729_154701_aa8985 soma:hasCapability instance:red_apple_20250729_154701_aa8985_graspability .\ninstance:red_apple_20250729_154701_aa8985 soma:hasCanbegrasped \"True\"^^http://www.w3.org/2001/XMLSchema#integer .\ninstance:red_apple_20250729_154701_aa8985_primary_task_0 rdf:type soma:Task .\ninstance:red_apple_20250729_154701_aa8985_primary_task_0 soma:hasTaskname \"eating\" .\ninstance:red_apple_20250729_154701_aa8985 soma:affordsTask instance:red_apple_20250729_154701_aa8985_primary_task_0 .\ninstance:red_apple_20250729_154701_aa8985_primary_task_1 rdf:type soma:Task .\ninstance:red_apple_20250729_154701_aa8985_primary_task_1 soma:hasTaskname \"nutrition\" .\ninstance:red_apple_20250729_154701_aa8985 soma:affordsTask instance:red_apple_20250729_154701_aa8985_primary_task_1 .\ninstance:red_apple_20250729_154701_aa8985_primary_task_2 rdf:type soma:Task .\ninstance:red_apple_20250729_154701_aa8985_primary_task_2 soma:hasTaskname \"snacking\" .\ninstance:red_apple_20250729_154701_aa8985 soma:affordsTask instance:red_apple_20250729_154701_aa8985_primary_task_2 .\n",
+    "available": true
+  },
+  "metadata": {
+    "analysis_timestamp": "2025-07-29T15:47:01.012374",
+    "mode": "mock",
+    "template_used": "apple",
+    "confidence_note": "Mock analysis - not from real LLM"
+  },
+  "export_info": {
+    "format": "json",
+    "version": "1.0",
+    "exporter": "JSONExporter"
+  }
+}

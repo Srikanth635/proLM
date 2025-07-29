@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="label" attr.type="string"/>
+<graph edgedefault="directed"><node id="http://example.org/instances#apple_001"/>
+<node id="http://www.ease-crc.org/ont/SOMA.owl#Item"/>
+<node id="http://example.org/instances#table_001"/>
+<node id="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture"/>
+<node id="http://example.org/instances#apple_001_color"/>
+<node id="http://www.ease-crc.org/ont/SOMA.owl#RedColor"/>
+<node id="http://example.org/instances#apple_001_shape"/>
+<node id="http://www.ease-crc.org/ont/SOMA.owl#SphereShape"/>
+<edge source="http://example.org/instances#apple_001" target="http://www.ease-crc.org/ont/SOMA.owl#Item">
+  <data key="d0">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</data>
+</edge>
+<edge source="http://example.org/instances#apple_001" target="http://example.org/instances#apple_001_color">
+  <data key="d0">http://www.ease-crc.org/ont/SOMA.owl#hasColor</data>
+</edge>
+<edge source="http://example.org/instances#apple_001" target="http://example.org/instances#apple_001_shape">
+  <data key="d0">http://www.ease-crc.org/ont/SOMA.owl#hasShape</data>
+</edge>
+<edge source="http://example.org/instances#apple_001" target="http://example.org/instances#table_001">
+  <data key="d0">http://www.ease-crc.org/ont/SOMA.owl#isSupportedBy</data>
+</edge>
+<edge source="http://example.org/instances#table_001" target="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture">
+  <data key="d0">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</data>
+</edge>
+<edge source="http://example.org/instances#table_001" target="http://example.org/instances#apple_001">
+  <data key="d0">http://www.ease-crc.org/ont/SOMA.owl#supports</data>
+</edge>
+<edge source="http://example.org/instances#apple_001_color" target="http://www.ease-crc.org/ont/SOMA.owl#RedColor">
+  <data key="d0">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</data>
+</edge>
+<edge source="http://example.org/instances#apple_001_shape" target="http://www.ease-crc.org/ont/SOMA.owl#SphereShape">
+  <data key="d0">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</data>
+</edge>
+</graph></graphml>

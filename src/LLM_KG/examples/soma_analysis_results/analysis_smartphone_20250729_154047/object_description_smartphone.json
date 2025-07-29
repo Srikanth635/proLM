@@ -1,0 +1,133 @@
+{
+  "object_analysis": {
+    "name": "Smartphone",
+    "description": "smartphone with cracked screen",
+    "visual": {
+      "colors": {
+        "primary_color": "black",
+        "rgb": {
+          "r": 20,
+          "g": 20,
+          "b": 20
+        },
+        "hsv": null,
+        "secondary_colors": [],
+        "color_pattern": null
+      },
+      "surface": {
+        "texture": "smooth",
+        "finish": "natural",
+        "transparency": null,
+        "reflectivity": null,
+        "pattern": null
+      },
+      "aesthetic_design": null,
+      "visual_features": []
+    },
+    "geometric": {
+      "shape": {
+        "primary_shape": "BoxShape",
+        "dimensions": {
+          "width": 0.07,
+          "height": 0.15,
+          "depth": 0.008,
+          "length": null,
+          "radius": null
+        },
+        "shape_parameters": {},
+        "complex_geometry": null
+      },
+      "pose": null,
+      "spatial_relations": {
+        "supported_by": [],
+        "supports": [],
+        "contained_in": [],
+        "contains": [],
+        "adjacent_to": []
+      },
+      "bounding_box": null
+    },
+    "material": {
+      "primary_material": "glass",
+      "secondary_materials": [],
+      "mass": 0.18,
+      "density": null,
+      "hardness": null,
+      "temperature": null
+    },
+    "mechanical": {
+      "static_friction": null,
+      "kinetic_friction": null,
+      "max_force": null,
+      "elasticity": null,
+      "fragility": null
+    },
+    "capabilities": {
+      "functional_affordances": {
+        "can_cut": false,
+        "can_contain": false,
+        "can_support": null,
+        "can_pour": null,
+        "can_grasp": true,
+        "can_operate": null,
+        "pourable": null,
+        "graspability": 0.95
+      },
+      "task_affordances": {
+        "primary_tasks": [
+          "communication",
+          "computing",
+          "photography"
+        ],
+        "secondary_tasks": [],
+        "requires_tools": [],
+        "enables_tasks": []
+      },
+      "capabilities": [],
+      "limitations": []
+    },
+    "semantic": {
+      "category": "Appliance",
+      "subcategories": [],
+      "roles": {
+        "agent_roles": [],
+        "patient_roles": [],
+        "instrument_roles": [],
+        "location_roles": []
+      },
+      "context": {
+        "typical_locations": [],
+        "associated_activities": [],
+        "cultural_significance": null,
+        "safety_considerations": [],
+        "maintenance_requirements": []
+      },
+      "synonyms": []
+    },
+    "state": {
+      "device_state": null,
+      "cleanliness": "unknown",
+      "integrity": 1.0,
+      "functional_state": null,
+      "temporal_properties": {}
+    },
+    "confidence_score": 0.85,
+    "source": "mock_agent",
+    "timestamp": "2025-07-29T15:40:47.935783"
+  },
+  "knowledge_graph": {
+    "turtle": "@prefix soma: <http://www.ease-crc.org/ont/SOMA.owl#> .\n@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .\n@prefix instance: <http://example.org/instances#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\ninstance:smartphone_20250729_154047_1000cc rdf:type soma:Appliance .\ninstance:smartphone_20250729_154047_1000cc soma:hasName \"Smartphone\" .\ninstance:smartphone_20250729_154047_1000cc soma:hasDescription \"smartphone with cracked screen\" .\ninstance:smartphone_20250729_154047_1000cc soma:hasConfidenceScore \"0.85\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc soma:hasTimestamp \"2025-07-29T15:40:47.935783\" .\ninstance:smartphone_20250729_154047_1000cc_color rdf:type soma:Color .\ninstance:smartphone_20250729_154047_1000cc_color soma:hasColorValue \"black\" .\ninstance:smartphone_20250729_154047_1000cc_color soma:hasRGBValue \"20,20,20\" .\ninstance:smartphone_20250729_154047_1000cc soma:hasColor instance:smartphone_20250729_154047_1000cc_color .\ninstance:smartphone_20250729_154047_1000cc_shape rdf:type soma:BoxShape .\ninstance:smartphone_20250729_154047_1000cc_shape soma:hasWidth \"0.07\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc_shape soma:hasHeight \"0.15\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc_shape soma:hasDepth \"0.008\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc_shape soma:hasVolume \"8.400000000000001e-05\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc soma:hasShape instance:smartphone_20250729_154047_1000cc_shape .\ninstance:smartphone_20250729_154047_1000cc_material rdf:type soma:Material .\ninstance:smartphone_20250729_154047_1000cc_material soma:hasMaterialtype \"glass\" .\ninstance:smartphone_20250729_154047_1000cc soma:hasMaterial instance:smartphone_20250729_154047_1000cc_material .\ninstance:smartphone_20250729_154047_1000cc_mass rdf:type soma:MassAttribute .\ninstance:smartphone_20250729_154047_1000cc_mass soma:hasMassValue \"0.18\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc soma:hasMassAttribute instance:smartphone_20250729_154047_1000cc_mass .\ninstance:smartphone_20250729_154047_1000cc_graspability rdf:type soma:Graspability .\ninstance:smartphone_20250729_154047_1000cc_graspability soma:hasGraspabilityValue \"0.95\"^^http://www.w3.org/2001/XMLSchema#double .\ninstance:smartphone_20250729_154047_1000cc soma:hasCapability instance:smartphone_20250729_154047_1000cc_graspability .\ninstance:smartphone_20250729_154047_1000cc soma:hasCanbegrasped \"True\"^^http://www.w3.org/2001/XMLSchema#integer .\ninstance:smartphone_20250729_154047_1000cc_primary_task_0 rdf:type soma:Task .\ninstance:smartphone_20250729_154047_1000cc_primary_task_0 soma:hasTaskname \"communication\" .\ninstance:smartphone_20250729_154047_1000cc soma:affordsTask instance:smartphone_20250729_154047_1000cc_primary_task_0 .\ninstance:smartphone_20250729_154047_1000cc_primary_task_1 rdf:type soma:Task .\ninstance:smartphone_20250729_154047_1000cc_primary_task_1 soma:hasTaskname \"computing\" .\ninstance:smartphone_20250729_154047_1000cc soma:affordsTask instance:smartphone_20250729_154047_1000cc_primary_task_1 .\ninstance:smartphone_20250729_154047_1000cc_primary_task_2 rdf:type soma:Task .\ninstance:smartphone_20250729_154047_1000cc_primary_task_2 soma:hasTaskname \"photography\" .\ninstance:smartphone_20250729_154047_1000cc soma:affordsTask instance:smartphone_20250729_154047_1000cc_primary_task_2 .\n",
+    "available": true
+  },
+  "metadata": {
+    "analysis_timestamp": "2025-07-29T15:40:47.935797",
+    "mode": "mock",
+    "template_used": "smartphone",
+    "confidence_note": "Mock analysis - not from real LLM"
+  },
+  "export_info": {
+    "format": "json",
+    "version": "1.0",
+    "exporter": "JSONExporter"
+  }
+}

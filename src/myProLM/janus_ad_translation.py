@@ -295,7 +295,7 @@ class LogicProgramGenerator:
 
                 # with open(f"./temp_outputs/kbst.pl", 'w') as f:
                 with open(kb_file_path, 'w') as f:
-                    f.write(':- module(kbst).\n\n')
+                    # f.write(':- module(kbst).\n\n')
                     f.writelines(basic_designator_json['prologs'] + '\n')
 
             except:

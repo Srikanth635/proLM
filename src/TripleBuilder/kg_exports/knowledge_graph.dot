@@ -1,0 +1,22 @@
+digraph KnowledgeGraph {
+  rankdir=LR;
+  node [shape=ellipse, style=filled];
+
+  "http://example.org/instances#apple_001" [label="apple_001", fillcolor="lightblue"];
+  "http://www.ease-crc.org/ont/SOMA.owl#Item" [label="Item", fillcolor="lightgreen"];
+  "http://example.org/instances#table_001" [label="table_001", fillcolor="lightblue"];
+  "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture" [label="DesignedFurniture", fillcolor="lightgreen"];
+  "http://example.org/instances#apple_001_color" [label="apple_001_color", fillcolor="lightblue"];
+  "http://www.ease-crc.org/ont/SOMA.owl#RedColor" [label="RedColor", fillcolor="lightgreen"];
+  "http://example.org/instances#apple_001_shape" [label="apple_001_shape", fillcolor="lightblue"];
+  "http://www.ease-crc.org/ont/SOMA.owl#SphereShape" [label="SphereShape", fillcolor="lightgreen"];
+
+  "http://example.org/instances#apple_001" -> "http://www.ease-crc.org/ont/SOMA.owl#Item" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+  "http://example.org/instances#apple_001" -> "http://example.org/instances#apple_001_color" [label="http://www.ease-crc.org/ont/SOMA.owl#hasColor"];
+  "http://example.org/instances#apple_001" -> "http://example.org/instances#apple_001_shape" [label="http://www.ease-crc.org/ont/SOMA.owl#hasShape"];
+  "http://example.org/instances#apple_001" -> "http://example.org/instances#table_001" [label="http://www.ease-crc.org/ont/SOMA.owl#isSupportedBy"];
+  "http://example.org/instances#table_001" -> "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+  "http://example.org/instances#table_001" -> "http://example.org/instances#apple_001" [label="http://www.ease-crc.org/ont/SOMA.owl#supports"];
+  "http://example.org/instances#apple_001_color" -> "http://www.ease-crc.org/ont/SOMA.owl#RedColor" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+  "http://example.org/instances#apple_001_shape" -> "http://www.ease-crc.org/ont/SOMA.owl#SphereShape" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+}

@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "soma": "http://www.ease-crc.org/ont/SOMA.owl#",
+    "dul": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#",
+    "instance": "http://example.org/instances#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "http://example.org/instances#apple_001",
+      "rdf:type": {
+        "@id": "http://www.ease-crc.org/ont/SOMA.owl#Item"
+      },
+      "soma:hasColor": {
+        "@id": "http://example.org/instances#apple_001_color"
+      },
+      "soma:hasShape": {
+        "@id": "http://example.org/instances#apple_001_shape"
+      },
+      "soma:isSupportedBy": {
+        "@id": "http://example.org/instances#table_001"
+      }
+    },
+    {
+      "@id": "http://example.org/instances#table_001",
+      "rdf:type": {
+        "@id": "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture"
+      },
+      "soma:supports": {
+        "@id": "http://example.org/instances#apple_001"
+      }
+    },
+    {
+      "@id": "http://example.org/instances#apple_001_color",
+      "rdf:type": {
+        "@id": "http://www.ease-crc.org/ont/SOMA.owl#RedColor"
+      }
+    },
+    {
+      "@id": "http://example.org/instances#apple_001_shape",
+      "rdf:type": {
+        "@id": "http://www.ease-crc.org/ont/SOMA.owl#SphereShape"
+      }
+    }
+  ]
+}

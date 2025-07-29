@@ -1,0 +1,27 @@
+{
+  "session_id": "analysis_red_apple_20250729_153841",
+  "timestamp": "20250729_153841",
+  "object_name": "Red Apple",
+  "export_formats": [
+    "json",
+    "html",
+    "markdown",
+    "knowledge_graph"
+  ],
+  "exported_files": [
+    "object_description_red_apple.json",
+    "analysis_report_red_apple.html",
+    "summary_red_apple.md",
+    "knowledge_graph_red_apple.ttl"
+  ],
+  "metadata": {
+    "analysis_timestamp": "2025-07-29T15:38:41.257574",
+    "mode": "mock",
+    "template_used": "apple",
+    "confidence_note": "Mock analysis - not from real LLM"
+  },
+  "system_info": {
+    "version": "0.1.0",
+    "export_time": "2025-07-29T15:38:41.258844"
+  }
+}

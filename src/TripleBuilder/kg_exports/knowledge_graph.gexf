@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-07-29">
+    <creator>NetworkX 3.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <nodes>
+      <node id="http://example.org/instances#apple_001" label="http://example.org/instances#apple_001" />
+      <node id="http://www.ease-crc.org/ont/SOMA.owl#Item" label="http://www.ease-crc.org/ont/SOMA.owl#Item" />
+      <node id="http://example.org/instances#table_001" label="http://example.org/instances#table_001" />
+      <node id="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture" label="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture" />
+      <node id="http://example.org/instances#apple_001_color" label="http://example.org/instances#apple_001_color" />
+      <node id="http://www.ease-crc.org/ont/SOMA.owl#RedColor" label="http://www.ease-crc.org/ont/SOMA.owl#RedColor" />
+      <node id="http://example.org/instances#apple_001_shape" label="http://example.org/instances#apple_001_shape" />
+      <node id="http://www.ease-crc.org/ont/SOMA.owl#SphereShape" label="http://www.ease-crc.org/ont/SOMA.owl#SphereShape" />
+    </nodes>
+    <edges>
+      <edge source="http://example.org/instances#apple_001" target="http://www.ease-crc.org/ont/SOMA.owl#Item" id="0" label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" />
+      <edge source="http://example.org/instances#apple_001" target="http://example.org/instances#apple_001_color" id="1" label="http://www.ease-crc.org/ont/SOMA.owl#hasColor" />
+      <edge source="http://example.org/instances#apple_001" target="http://example.org/instances#apple_001_shape" id="2" label="http://www.ease-crc.org/ont/SOMA.owl#hasShape" />
+      <edge source="http://example.org/instances#apple_001" target="http://example.org/instances#table_001" id="3" label="http://www.ease-crc.org/ont/SOMA.owl#isSupportedBy" />
+      <edge source="http://example.org/instances#table_001" target="http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture" id="4" label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" />
+      <edge source="http://example.org/instances#table_001" target="http://example.org/instances#apple_001" id="5" label="http://www.ease-crc.org/ont/SOMA.owl#supports" />
+      <edge source="http://example.org/instances#apple_001_color" target="http://www.ease-crc.org/ont/SOMA.owl#RedColor" id="6" label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" />
+      <edge source="http://example.org/instances#apple_001_shape" target="http://www.ease-crc.org/ont/SOMA.owl#SphereShape" id="7" label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" />
+    </edges>
+  </graph>
+</gexf>

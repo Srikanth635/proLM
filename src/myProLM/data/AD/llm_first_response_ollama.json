@@ -1,18 +1,22 @@
 {
   "action_core": "PickingUp",
-  "cram_plan_response": "(an action (type PickingUp) (an object (type box) (shape round) (color white)) (source (a location (on the drawer) (position under))))",
+  "cram_plan_response": "(an action (type PickingUp) (an object (type cup) (shape cylindrical) (material glass) (transparency transparent) (color clear) (size medium)) (source (a location (on table) (position on) (surface flat))))",
   "enriched_action_core_attributes": {
-    "action_verb": "Pick up",
-    "location": "the drawer",
+    "action_verb": "pick up",
+    "location": "table",
     "location_props": {
-      "position": "under"
+      "position": "on",
+      "surface": "flat"
     },
-    "obj_to_be_grabbed": "box",
+    "obj_to_be_grabbed": "cup",
     "obj_to_be_grabbed_props": {
-      "color": "white",
-      "shape": "round"
+      "color": "clear",
+      "material": "glass",
+      "shape": "cylindrical",
+      "size": "medium",
+      "transparency": "transparent"
     }
   },
-  "instruction": "Pick up round white box from the drawer",
-  "task_description": "**Activity Performed:** PickingUp  \n**Action Sequence:**  \n1. Initiate PickingUp action.  \n2. Identify object: box (shape: round, color: white).  \n3. Specify source location: drawer (position: under).  \n\n**Entity Details:**  \n- **Box:**  \n  - Shape: round  \n  - Color: white  \n- **Drawer:**  \n  - Position: under"
+  "instruction": "pick up the cup from the table",
+  "task_description": "**Activity Performed:** PickingUp  \n\n**Action Sequence:**  \n1. PickingUp the cup from the table.  \n\n**Entity Details:**  \n- **Cup:**  \n  - Color: clear  \n  - Material: glass  \n  - Shape: cylindrical  \n  - Size: medium  \n  - Transparency: transparent  \n- **Table:**  \n  - Position: on  \n  - Surface: flat"
 }

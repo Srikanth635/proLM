@@ -1,0 +1,9 @@
+Subject,Predicate,Object
+apple_001,type,Item
+table_001,type,DesignedFurniture
+apple_001_color,type,RedColor
+apple_001_shape,type,SphereShape
+apple_001,hasColor,apple_001_color
+apple_001,hasShape,apple_001_shape
+apple_001,isSupportedBy,table_001
+table_001,supports,apple_001

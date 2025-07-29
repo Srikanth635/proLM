@@ -1,0 +1,143 @@
+{
+  "elements": [
+    {
+      "data": {
+        "id": "http://www.ease-crc.org/ont/SOMA.owl#Item",
+        "label": "Item",
+        "type": "property"
+      }
+    },
+    {
+      "data": {
+        "id": "http://example.org/instances#table_001",
+        "label": "table_001",
+        "type": "instance"
+      }
+    },
+    {
+      "data": {
+        "id": "http://example.org/instances#apple_001",
+        "label": "apple_001",
+        "type": "instance"
+      }
+    },
+    {
+      "data": {
+        "id": "http://www.ease-crc.org/ont/SOMA.owl#SphereShape",
+        "label": "SphereShape",
+        "type": "property"
+      }
+    },
+    {
+      "data": {
+        "id": "http://example.org/instances#apple_001_color",
+        "label": "apple_001_color",
+        "type": "instance"
+      }
+    },
+    {
+      "data": {
+        "id": "http://www.ease-crc.org/ont/SOMA.owl#RedColor",
+        "label": "RedColor",
+        "type": "property"
+      }
+    },
+    {
+      "data": {
+        "id": "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture",
+        "label": "DesignedFurniture",
+        "type": "property"
+      }
+    },
+    {
+      "data": {
+        "id": "http://example.org/instances#apple_001_shape",
+        "label": "apple_001_shape",
+        "type": "instance"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_0",
+        "source": "http://example.org/instances#apple_001",
+        "target": "http://www.ease-crc.org/ont/SOMA.owl#Item",
+        "label": "type"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_1",
+        "source": "http://example.org/instances#table_001",
+        "target": "http://www.ease-crc.org/ont/SOMA.owl#DesignedFurniture",
+        "label": "type"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_2",
+        "source": "http://example.org/instances#apple_001_color",
+        "target": "http://www.ease-crc.org/ont/SOMA.owl#RedColor",
+        "label": "type"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_3",
+        "source": "http://example.org/instances#apple_001_shape",
+        "target": "http://www.ease-crc.org/ont/SOMA.owl#SphereShape",
+        "label": "type"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_4",
+        "source": "http://example.org/instances#apple_001",
+        "target": "http://example.org/instances#apple_001_color",
+        "label": "hasColor"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_5",
+        "source": "http://example.org/instances#apple_001",
+        "target": "http://example.org/instances#apple_001_shape",
+        "label": "hasShape"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_6",
+        "source": "http://example.org/instances#apple_001",
+        "target": "http://example.org/instances#table_001",
+        "label": "isSupportedBy"
+      }
+    },
+    {
+      "data": {
+        "id": "edge_7",
+        "source": "http://example.org/instances#table_001",
+        "target": "http://example.org/instances#apple_001",
+        "label": "supports"
+      }
+    }
+  ],
+  "style": [
+    {
+      "selector": "node",
+      "style": {
+        "label": "data(label)",
+        "text-valign": "center",
+        "color": "black",
+        "background-color": "#3498db"
+      }
+    },
+    {
+      "selector": "edge",
+      "style": {
+        "label": "data(label)",
+        "curve-style": "bezier",
+        "target-arrow-shape": "triangle"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+@prefix soma: <http://www.ease-crc.org/ont/SOMA.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix instance: <http://example.org/instances#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+instance:apple_001 rdf:type soma:Item .
+instance:table_001 rdf:type soma:DesignedFurniture .
+instance:apple_001_color rdf:type soma:RedColor .
+instance:apple_001_shape rdf:type soma:SphereShape .
+instance:apple_001 soma:hasColor instance:apple_001_color .
+instance:apple_001 soma:hasShape instance:apple_001_shape .
+instance:apple_001 soma:isSupportedBy instance:table_001 .
+instance:table_001 soma:supports instance:apple_001 .
