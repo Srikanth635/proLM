@@ -1,22 +1,19 @@
 % Facts
-action(picking_up).
-object(cup).
-object(table).
+action(act_picking_up).
+object(obj_water_glass).
+object(loc_table).
 
-name(picking_up, 'PickingUp').
-name(cup, 'clear glass cup').
-name(table, 'table').
+name(act_picking_up,    'PickingUp').
+name(obj_water_glass,   'water glass').
+name(loc_table,         'table').
 
-property(cup, color, clear).
-property(cup, material, glass).
-property(cup, shape, cylindrical).
-property(cup, size, medium).
-property(cup, transparency, transparent).
-property(table, position, on).
-property(table, surface, flat).
+property(obj_water_glass, material,     glass).
+property(obj_water_glass, shape,        cylindrical).
+property(obj_water_glass, transparency, transparent).
+property(obj_water_glass, reflectance,  glossy).
 
-located_at(cup, table).
+located_at(obj_water_glass, loc_table).
 
-involves(picking_up, cup).
+involves(act_picking_up, obj_water_glass).
 
 %

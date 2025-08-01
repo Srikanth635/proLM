@@ -1,22 +1,20 @@
 {
   "action_core": "PickingUp",
-  "cram_plan_response": "(an action (type PickingUp) (an object (type cup) (shape cylindrical) (material glass) (transparency transparent) (color clear) (size medium)) (source (a location (on table) (position on) (surface flat))))",
+  "cram_plan_response": "(an action (type PickingUp) (an object (type water glass) (material glass) (shape cylindrical) (transparency transparent) (reflectance glossy)) (source (a location (on table) (position on))))",
   "enriched_action_core_attributes": {
     "action_verb": "pick up",
     "location": "table",
     "location_props": {
-      "position": "on",
-      "surface": "flat"
+      "position": "on"
     },
-    "obj_to_be_grabbed": "cup",
+    "obj_to_be_grabbed": "water glass",
     "obj_to_be_grabbed_props": {
-      "color": "clear",
       "material": "glass",
+      "reflectance": "glossy",
       "shape": "cylindrical",
-      "size": "medium",
       "transparency": "transparent"
     }
   },
-  "instruction": "pick up the cup from the table",
-  "task_description": "**Activity Performed:** PickingUp  \n\n**Action Sequence:**  \n1. PickingUp the cup from the table.  \n\n**Entity Details:**  \n- **Cup:**  \n  - Color: clear  \n  - Material: glass  \n  - Shape: cylindrical  \n  - Size: medium  \n  - Transparency: transparent  \n- **Table:**  \n  - Position: on  \n  - Surface: flat"
+  "instruction": "pick up the water glass from the table",
+  "task_description": "- **Activity Performed**: PickingUp  \n- **Action Sequence**:  \n  1. (an action (type PickingUp) (an object (type water glass) (material glass) (shape cylindrical) (transparency transparent) (reflectance glossy)) (source (a location (on table) (position on))))  \n- **Entity Details**:  \n  - **Object (water glass)**:  \n    - Material: glass  \n    - Shape: cylindrical  \n    - Transparency: transparent  \n    - Reflectance: glossy  \n  - **Source (table)**:  \n    - Position: on"
 }

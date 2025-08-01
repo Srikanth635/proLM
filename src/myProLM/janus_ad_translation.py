@@ -336,8 +336,8 @@ class LogicProgramInference:
         full_prompt = (Prolog_LLM_Inference.replace('[[FACTS]]', kb_facts_str)
                                             .replace('[[DESIGNATOR]]',designator)
                                             .replace('[[QUESTION]]', prompt))
-        # output = self.openai_api.generate(full_prompt)
-        output = self.ollama_api.generate(full_prompt + " \nothink")
+        output = self.openai_api.generate(full_prompt)
+        # output = self.ollama_api.generate(full_prompt + " \nothink")
 
         # For now, just return a dummy answer showing you received them
         # answer = f"Received designator: {designator}, prompt: {prompt}, kb_facts_count: {len(kb_facts)}"
