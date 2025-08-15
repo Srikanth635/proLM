@@ -12,15 +12,15 @@ Main Components:
 - CLI tools: Command-line interface
 
 Basic Usage:
-    >>> from soma_object_analysis import SOMAObjectAnalysisSystem
-    >>> system = SOMAObjectAnalysisSystem()
-    >>> result = system.analyze_object_sync("red apple on table")
-    >>> print(result["object_analysis"]["name"])
+    # >>> from ..soma_object_analysis import SOMAObjectAnalysisSystem
+    # >>> system = SOMAObjectAnalysisSystem()
+    # >>> result = system.analyze_object_sync("red apple on table")
+    # >>> print(result["object_analysis"]["name"])
     Red Apple
 
 Quick Analysis:
-    >>> from soma_object_analysis import analyze_object_sync
-    >>> result = analyze_object_sync("kitchen knife", use_mock=True)
+    # >>> from ..soma_object_analysis import analyze_object_sync
+    # >>> result = analyze_object_sync("kitchen knife", use_mock=True)
 
 Author: AI Assistant
 Version: 0.1.0

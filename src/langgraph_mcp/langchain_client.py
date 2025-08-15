@@ -367,7 +367,7 @@ async def main():
     except ConnectionError as e:
         print(f"\nConnection Error: {e}")
         print("Please check that:")
-        print("1. The MCP server is running (python server.py --server_type=sse)")
+        print("1. The MCP server is running (python sqlite_mcp_server.py --server_type=sse)")
         print("2. The server URL is correct (http://127.0.0.1:8000)")
         print("3. The server is accessible from your machine")
     except Exception as e:

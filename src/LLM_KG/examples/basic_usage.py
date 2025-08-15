@@ -5,7 +5,6 @@ Basic usage examples for SOMA Object Analysis System
 import asyncio
 from ..soma_object_analysis import SOMAObjectAnalysisSystem, analyze_object_sync
 
-
 def example_1_basic_analysis():
     """Example 1: Basic object analysis"""
     print("=" * 60)
@@ -180,7 +179,7 @@ def example_6_working_with_results():
 
     if result["success"]:
         # Access the ObjectDescription model
-        from soma_object_analysis.models import ObjectDescription
+        from ..soma_object_analysis.models import ObjectDescription
         obj_desc = ObjectDescription(**result["object_analysis"])
 
         print(f"✅ Object: {obj_desc.name}")

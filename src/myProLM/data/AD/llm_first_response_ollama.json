@@ -1,20 +1,20 @@
 {
-  "action_core": "PickingUp",
-  "cram_plan_response": "(an action (type PickingUp) (an object (type water glass) (material glass) (shape cylindrical) (transparency transparent) (reflectance glossy)) (source (a location (on table) (position on))))",
+  "action_core": "Opening",
+  "cram_plan_response": "(perform (an action (type open-object) (an object (type fridge) (shape rectangular) (size large) (material metal) (color white) (texture smooth) (reflectance glossy) (position on) (orientation upright))))",
   "enriched_action_core_attributes": {
-    "action_verb": "pick up",
-    "location": "table",
-    "location_props": {
-      "position": "on"
-    },
-    "obj_to_be_grabbed": "water glass",
-    "obj_to_be_grabbed_props": {
-      "material": "glass",
+    "action_verb": "open",
+    "obj_to_be_opened": "fridge",
+    "obj_to_be_opened_props": {
+      "color": "white",
+      "material": "metal",
+      "orientation": "upright",
+      "position": "on",
       "reflectance": "glossy",
-      "shape": "cylindrical",
-      "transparency": "transparent"
+      "shape": "rectangular",
+      "size": "large",
+      "texture": "smooth"
     }
   },
-  "instruction": "pick up the water glass from the table",
-  "task_description": "- **Activity Performed**: PickingUp  \n- **Action Sequence**:  \n  1. (an action (type PickingUp) (an object (type water glass) (material glass) (shape cylindrical) (transparency transparent) (reflectance glossy)) (source (a location (on table) (position on))))  \n- **Entity Details**:  \n  - **Object (water glass)**:  \n    - Material: glass  \n    - Shape: cylindrical  \n    - Transparency: transparent  \n    - Reflectance: glossy  \n  - **Source (table)**:  \n    - Position: on"
+  "instruction": "open the fridge and turn on the tap",
+  "task_description": "- **Activity Performed**: Opening  \n- **Action Sequence**:  \n  1. Perform an action of type \"open-object\" on an object of type \"fridge\" with properties: shape rectangular, size large, material metal, color white, texture smooth, reflectance glossy, position on, orientation upright.  \n- **Entity Details**:  \n  - **Fridge**:  \n    - Color: white  \n    - Material: metal  \n    - Shape: rectangular  \n    - Size: large  \n    - Texture: smooth  \n    - Reflectance: glossy  \n    - Position: on  \n    - Orientation: upright"
 }

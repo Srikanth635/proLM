@@ -1,19 +1,19 @@
 % Facts
-action(act_picking_up).
-object(obj_water_glass).
-object(loc_table).
+action(opening).
+object(fridge).
 
-name(act_picking_up,    'PickingUp').
-name(obj_water_glass,   'water glass').
-name(loc_table,         'table').
+name(opening, 'Opening').
+name(fridge, 'white metal fridge').
 
-property(obj_water_glass, material,     glass).
-property(obj_water_glass, shape,        cylindrical).
-property(obj_water_glass, transparency, transparent).
-property(obj_water_glass, reflectance,  glossy).
+property(fridge, color, white).
+property(fridge, material, metal).
+property(fridge, shape, rectangular).
+property(fridge, size, large).
+property(fridge, texture, smooth).
+property(fridge, reflectance, glossy).
+property(fridge, position, on).
+property(fridge, orientation, upright).
 
-located_at(obj_water_glass, loc_table).
-
-involves(act_picking_up, obj_water_glass).
+involves(opening, fridge).
 
 %

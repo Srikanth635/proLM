@@ -2,3 +2,4 @@
 src/TripleBuilder/.env
 src/.env
 src/myProLM/__pycache__/janus_querying.cpython-311.pyc
+**__pycache__**
